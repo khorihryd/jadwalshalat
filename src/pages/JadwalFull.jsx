@@ -47,7 +47,9 @@ const JadwalFull = () => {
 
 				// Set tanggal hari ini
 				const today = new Date();
-				const todayFormatted = today.toISOString().split('T')[0];
+				const Month = today.getMonth()+1;
+				//const todayFormatted = today.toISOString().split('T')[0];
+				const todayFormatted = `${today.getFullYear()}-${Month.toString().padStart(2, '0')}-${today.getDate().toString().padStart(2, '0')}`
 				setTodayDate(todayFormatted);
 			} catch (err) {
 				setError(err.message);
