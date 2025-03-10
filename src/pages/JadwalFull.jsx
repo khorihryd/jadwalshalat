@@ -1,4 +1,3 @@
-// src/pages/JadwalFull.jsx
 import React, {
 	useState,
 	useEffect
@@ -83,50 +82,52 @@ const JadwalFull = () => {
 
 	return (
 		<div className="p-4">
-			<h1 className="text-2xl font-bold mb-4">Jadwal Lengkap {jadwal.lokasi} - {year}/{month}</h1>
+			<h1 className="fixed top-0 bg-white text-2xl font-bold mb-4">Jadwal Lengkap {jadwal.lokasi} - {year}/{month}</h1>
 
 			{/* Tampilan Card untuk Smartphone */}
-			<div className="hidden">
+			<div className="md:hidden mt-20">
 				{jadwal.jadwal.map((item, index) => (
 					<div
 						key={item.date}
-						className={`mb-4 p-4 border rounded-lg ${
+						className={`mb-4 border rounded-lg overflow-hidden ${
 						item.date === todayDate ? 'bg-yellow-200': ''
 						}`}
 						>
-						<p className="font-semibold">
+						<div className="font-semibold px-3 py-1 bg-emerald-500">
 							{item.tanggal}
-						</p>
-						<p>
-							Imsak: {item.imsak}
-						</p>
-						<p>
-							Subuh: {item.subuh}
-						</p>
-						<p>
-							Terbit: {item.terbit}
-						</p>
-						<p>
-							Dhuha: {item.dhuha}
-						</p>
-						<p>
-							Dzuhur: {item.dzuhur}
-						</p>
-						<p>
-							Ashar: {item.ashar}
-						</p>
-						<p>
-							Maghrib: {item.maghrib}
-						</p>
-						<p>
-							Isya: {item.isya}
-						</p>
+						</div>
+						<div className="px-3 py-2 grid grid-cols-2">
+							<p>
+								Imsak: {item.imsak}
+							</p>
+							<p>
+								Subuh: {item.subuh}
+							</p>
+							<p>
+								Terbit: {item.terbit}
+							</p>
+							<p>
+								Dhuha: {item.dhuha}
+							</p>
+							<p>
+								Dzuhur: {item.dzuhur}
+							</p>
+							<p>
+								Ashar: {item.ashar}
+							</p>
+							<p>
+								Maghrib: {item.maghrib}
+							</p>
+							<p>
+								Isya: {item.isya}
+							</p>
+						</div>
 					</div>
 				))}
 			</div>
 
 			{/* Tampilan Tabel untuk Desktop */}
-			<div className=" w-screen h-screen overflow-x-auto">
+			<div className=" hidden md:block w-screen h-screen overflow-x-auto">
 				<table className="relative w-full border-collapse border border-gray-400 min-w-max">
 					<thead className="sticky top-0 left-0">
 						<tr className="bg-gray-200">

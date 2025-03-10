@@ -78,7 +78,9 @@ const Jadwal = () => {
 	}
 
 	const today = new Date();
-	let todayDate = today.toISOString().split('T')[0];
+	let Month = today.getMonth()+1;
+	//let todayDate = today.toISOString().split('T')[0];
+	let todayDate = `${today.getFullYear()}-${Month.toString().padStart(2,'0')}-${today.getDate()}`
 	let jadwalHariIni = jadwal.jadwal.find(j => j.date === todayDate);
 
 	const now = new Date();
@@ -106,7 +108,7 @@ const Jadwal = () => {
 		{
 			label: 'Subuh',
 			waktu: jadwalHariIni.subuh,
-			title: 'Saatnya Azhan Subuh, sholat lebih baik daripada tidur'
+			title: 'Saatnya Azan Subuh, sholat lebih baik daripada tidur'
 		},
 		{
 			label: 'Terbit',
@@ -121,22 +123,22 @@ const Jadwal = () => {
 		{
 			label: 'Dzuhur',
 			waktu: jadwalHariIni.dzuhur,
-			title: 'Saatnya Azhan Dzuhur'
+			title: 'Saatnya Azan Dzuhur'
 		},
 		{
 			label: 'Ashar',
 			waktu: jadwalHariIni.ashar,
-			title: 'Saatnya Azhan Azhar'
+			title: 'Saatnya Azan Azhar'
 		},
 		{
 			label: 'Maghrib',
 			waktu: jadwalHariIni.maghrib,
-			title: 'Saatnya Azhan Maghrib. Selamat Berbuka Puasa!'
+			title: 'Saatnya Azan Maghrib. Selamat Berbuka Puasa!'
 		},
 		{
 			label: 'Isya',
 			waktu: jadwalHariIni.isya,
-			title: 'Saatnya Azhan Isya. Siap-siap shalat tarawih berjamaah di masjid terdekat!'
+			title: 'Saatnya Azan Isya. Siap-siap shalat tarawih berjamaah di masjid terdekat!'
 		},
 	];
 
